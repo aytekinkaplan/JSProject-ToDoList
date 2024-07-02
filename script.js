@@ -1,52 +1,52 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-  // Container oluşturuluyor
+  // Create container
   const div = document.createElement("div");
   div.classList.add("container");
 
-  // Input alanı oluşturuluyor
+  // Create input field
   const input = document.createElement("input");
   input.type = "text";
   input.placeholder = "Enter a task";
   input.classList.add("input");
 
-  // Görev listesi oluşturuluyor
+  // Create task list
   const ul = document.createElement("ul");
   ul.classList.add("list");
 
-  // Ekleme butonu oluşturuluyor
+  // Create add button
   const button = document.createElement("button");
   button.type = "submit";
   button.classList.add("button");
   button.textContent = "Add";
 
-  // Görev ekleme fonksiyonu
+  // Add task function
   function addTask() {
     if (input.value.trim() === "") {
-      return; // Boş değer eklenmesini engeller
+      return; // Prevent adding empty tasks
     }
 
     const li = document.createElement("li");
 
-    // Radyo butonu oluşturuluyor
+    // Create radio button
     const radio = document.createElement("input");
     radio.type = "radio";
     radio.name = "radio";
     radio.value = "radio";
     radio.classList.add("radio");
 
-    // Görev metni
+    // Task text
     const taskText = document.createElement("span");
 
-    const MAX_LENGTH = 50; // Maksimum metin uzunluğu
+    const MAX_LENGTH = 50; // Maximum text length
     let taskValue = input.value;
     if (taskValue.length > MAX_LENGTH) {
-      taskText.title = taskValue; // Tooltip olarak tam metni ekleyin
+      taskText.title = taskValue; // Add full text as tooltip
       taskValue = taskValue.substring(0, MAX_LENGTH) + "...";
     }
     taskText.textContent = taskValue;
 
-    // Delete butonu oluşturuluyor
+    // Create delete button
     const deleteButton = document.createElement("button");
     deleteButton.type = "button";
     deleteButton.classList.add("delete-button");
@@ -63,21 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
     input.value = "";
   }
 
-  // Butona tıklama olayını dinleyici
+  // Add click event listener to button
   button.addEventListener("click", addTask);
 
-  // Enter tuşuna basıldığında görev eklemek için
+  // Add enter key listener to input field
   input.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       addTask();
     }
   });
 
-  // Elemanlar container içine ekleniyor
+  // Append elements to container
   div.appendChild(input);
   div.appendChild(button);
   div.appendChild(ul);
 
-  // Container body içine ekleniyor
+  // Append container to body
   document.body.appendChild(div);
 });
