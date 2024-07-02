@@ -1,9 +1,3 @@
-# JSProject-ToDoList
-
-Tabii! İşte İngilizce bir README dosyası:
-
----
-
 # To-Do List
 
 This project creates a simple To-Do List application using JavaScript and HTML. Users can add tasks to the list and remove completed tasks.
